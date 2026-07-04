@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "archive_id": "qla-genesis-v1",
+  "created_at": "2026-05-04T00:00:00Z",
+  "signing_mode": "STUB",
+  "signature": "STUB_SIGNATURE_PLACEHOLDER",
+  "doctrines": [
+    {
+      "id": "doctrine-001",
+      "name": "non-maleficence",
+      "description": "Do not cause harm to individuals or society through actions or inactions.",
+      "weight": 0.95
+    },
+    {
+      "id": "doctrine-002",
+      "name": "autonomy",
+      "description": "Respect the right of individuals to make informed, self-determined decisions.",
+      "weight": 0.85
+    },
+    {
+      "id": "doctrine-003",
+      "name": "justice",
+      "description": "Ensure fair and equitable treatment for all individuals without bias or discrimination.",
+      "weight": 0.90
+    },
+    {
+      "id": "doctrine-004",
+      "name": "beneficence",
+      "description": "Act in the best interest of individuals and society to promote well-being.",
+      "weight": 0.80
+    },
+    {
+      "id": "doctrine-005",
+      "name": "transparency",
+      "description": "Operate openly and honestly, with traceable and auditable decision-making processes.",
+      "weight": 0.88
+    }
+  ],
+  "eli_weights": {
+    "L": 0.40,
+    "W": 0.25,
+    "R": 0.20,
+    "C": 0.15
+  },
+  "eli_thresholds": {
+    "refuse": 0.80,
+    "escalate": 0.50,
+    "accept": 0.50
+  },
+  "ici_threshold": 0.6,
+  "dfdr_alert_threshold": 0.7,
+  "gcai_alert_threshold": 5.0,
+  "read_only": true,
+  "ledger_pointer": "DATASET_UPDATE:qla-genesis-v1"
+}
