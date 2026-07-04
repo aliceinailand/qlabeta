@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "qla-genesis-v1.schema.json",
+  "title": "QLA Genesis Archive Schema",
+  "description": "Validates the Quantum Ledger Archive genesis document.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "archive_id",
+    "doctrines",
+    "eli_weights",
+    "eli_thresholds",
+    "ici_threshold"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "archive_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "signing_mode": {
+      "type": "string",
+      "enum": ["STUB", "HSM"]
+    },
+    "signature": {
+      "type": "string"
+    },
+    "doctrines": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "description", "weight"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "weight": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eli_weights": {
+      "type": "object",
+      "required": ["L", "W", "R", "C"],
+      "properties": {
+        "L": { "type": "number", "minimum": 0.0 },
+        "W": { "type": "number", "minimum": 0.0 },
+        "R": { "type": "number", "minimum": 0.0 },
+        "C": { "type": "number", "minimum": 0.0 }
+      },
+      "additionalProperties": false
+    },
+    "eli_thresholds": {
+      "type": "object",
+      "required": ["refuse", "escalate", "accept"],
+      "properties": {
+        "refuse": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "escalate": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "accept": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+      },
+      "additionalProperties": false
+    },
+    "ici_threshold": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "dfdr_alert_threshold": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "gcai_alert_threshold": {
+      "type": "number",
+      "minimum": 0.0
+    },
+    "read_only": {
+      "type": "boolean"
+    },
+    "ledger_pointer": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
